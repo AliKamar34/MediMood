@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:new_app/core/utils/app_text_style.dart';
-
-import 'package:new_app/core/utils/assets_data.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card_info.dart';
 
@@ -13,13 +9,20 @@ class PillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      color: ColorsAssetData.scaffoldColor,
+    return Card(
       elevation: 7,
+      color: ColorsAssetData.scaffoldColor,
       shadowColor: ColorsAssetData.primaryColor,
-      child: Padding(
-        padding: EdgeInsets.all(12),
-        child: PillCardInfo(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: InkWell(
+        onTap: () {},
+        borderRadius: BorderRadius.circular(14),
+        child: const Padding(
+          padding: EdgeInsets.all(12),
+          child: PillCardInfo(),
+        ),
       ),
     );
   }
