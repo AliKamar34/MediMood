@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
+import 'package:new_app/features/home/presentation/views/pills_view.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({
@@ -18,9 +19,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   int selectedIndex = 0;
   static const List<Widget> pages = [
     HomeView(),
-    Text(
-      'Likes',
-    ),
+    PillsView(),
     Text(
       'Search',
     ),

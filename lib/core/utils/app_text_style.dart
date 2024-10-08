@@ -37,7 +37,7 @@ abstract class AppTextStyle {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontFamily: 'Roboto',
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
     );
   }
 
