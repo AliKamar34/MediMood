@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:new_app/features/home/presentation/views/widgets/pill_action_buttons.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card_info.dart';
 
 class PillBottomSheet extends StatelessWidget {
@@ -30,39 +31,7 @@ class PillBottomSheet extends StatelessWidget {
                 const SizedBox(height: 30),
                 const PillCardInfo(),
                 const Expanded(child: SizedBox()),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(
-                          ColorsAssetData.primaryColor,
-                        ),
-                      ),
-                      child: Text(
-                        'Take',
-                        style: AppTextStyle.styleRegular20(context).copyWith(
-                          color: ColorsAssetData.scaffoldColor,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(
-                          ColorsAssetData.primaryColor,
-                        ),
-                      ),
-                      child: Text(
-                        'Edit',
-                        style: AppTextStyle.styleRegular20(context).copyWith(
-                          color: ColorsAssetData.scaffoldColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                const PillActionButtons(),
                 const SizedBox(height: 16),
               ],
             ),
