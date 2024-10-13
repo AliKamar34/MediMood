@@ -5,24 +5,24 @@ import 'package:new_app/core/utils/colors_asset_data.dart';
 class CustomDropDown extends StatelessWidget {
   const CustomDropDown({
     super.key,
+    required this.items,
+    required this.label,
   });
-
+  final List<String> items;
+  final String label;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
       decoration: InputDecoration(
-        labelText: 'Select an option',
+        labelText: label,
         labelStyle: AppTextStyle.styleRegular18(context).copyWith(
           color: ColorsAssetData.primaryColor,
         ),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
       ),
-      value: 'After Food',
-      items: [
-        'Before Food',
-        'After Food',
-      ].map<DropdownMenuItem<String>>((String value) {
+      value: items[0],
+      items: items.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(
