@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_drop_down.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_text_field.dart';
 import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_bar.dart';
 
 class EditPillViewBody extends StatelessWidget {
@@ -8,39 +10,24 @@ class EditPillViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const EditPillAppBar(),
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              cursorColor: ColorsAssetData.primaryColor,
-              decoration: InputDecoration(
-                labelText: 'Pill Name',
-                labelStyle: AppTextStyle.styleRegular14(context)
-                    .copyWith(color: ColorsAssetData.primaryColor),
-                hoverColor: ColorsAssetData.primaryColor,
-                contentPadding: const EdgeInsets.all(8),
-                enabledBorder: buildBorder(),
-                focusedBorder: buildBorder(),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12),
+          child: Column(
+            children: [
+              EditPillAppBar(),
+              SizedBox(
+                height: 20,
               ),
-            ),
-          ],
+              CustomTextField(),
+              SizedBox(
+                height: 20,
+              ),
+              CustomDropDown(),
+            ],
+          ),
         ),
-      ),
-    );
-  }
-
-  OutlineInputBorder buildBorder() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(
-        width: 1,
-        style: BorderStyle.solid,
-        color: ColorsAssetData.primaryColor,
       ),
     );
   }
