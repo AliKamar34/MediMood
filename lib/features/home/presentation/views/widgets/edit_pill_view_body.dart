@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_bar.dart';
 
 class EditPillViewBody extends StatelessWidget {
   const EditPillViewBody({super.key});
@@ -12,28 +12,7 @@ class EditPillViewBody extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TextButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: ColorsAssetData.primaryColor,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    'pill',
-                    style: AppTextStyle.styleMedium18(context).copyWith(
-                      color: ColorsAssetData.primaryColor,
-                    ),
-                  )
-                ],
-              ),
-            ),
+            const EditPillAppBar(),
             const SizedBox(
               height: 20,
             ),
