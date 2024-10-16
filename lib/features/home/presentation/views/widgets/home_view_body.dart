@@ -16,7 +16,7 @@ class HomeViewBody extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Good Morning',
-              style: AppTextStyle.styleRegular20(context),
+              style: AppTextStyle.styleMedium18(context),
             ),
           ),
           const Expanded(child: PillCardListView())
