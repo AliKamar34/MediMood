@@ -41,6 +41,14 @@ abstract class AppTextStyle {
     );
   }
 
+  static TextStyle styleMedium14(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontFamily: 'Roboto',
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   static TextStyle styleBold24(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),

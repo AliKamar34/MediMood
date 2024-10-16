@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/core/utils/app_text_style.dart';
-import 'package:new_app/core/utils/colors_asset_data.dart';
-
-import 'package:new_app/features/home/presentation/views/widgets/custom_drop_down.dart';
+import 'package:new_app/features/home/presentation/views/widgets/choices_section.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_save_button.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_text_field.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_time_picker.dart';
 import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_bar.dart';
@@ -26,33 +24,14 @@ class EditPillViewBody extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomDropDown(
-                      label: 'No Of Pills',
-                      items: [
-                        '1 pill',
-                        '2 pills',
-                        '3 pills',
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    flex: 2,
-                    child: CustomDropDown(
-                      label: 'Before & After',
-                      items: [
-                        'Before Food',
-                        'After Food',
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              ChoicesSection(),
               SizedBox(height: 50),
               CustomTimePicker(),
+              Expanded(child: SizedBox()),
+              CustomSaveButton(),
+              SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ),

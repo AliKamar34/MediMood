@@ -8,12 +8,13 @@ class CustomTimePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TimeOfDay selectedTime = TimeOfDay.now();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '${selectedTime.hour}:${selectedTime.minute}',
-          style: AppTextStyle.styleBold24(context),
+          formatTimeOfDay(selectedTime),
+          style: AppTextStyle.styleMedium18(context),
         ),
         const SizedBox(width: 10),
         ElevatedButton(
@@ -34,12 +35,19 @@ class CustomTimePicker extends StatelessWidget {
           },
           child: Text(
             'time',
-            style: AppTextStyle.styleMedium18(context).copyWith(
+            style: AppTextStyle.styleMedium14(context).copyWith(
               color: ColorsAssetData.scaffoldColor,
             ),
           ),
         ),
       ],
     );
+  }
+
+  String formatTimeOfDay(TimeOfDay tod) {
+    final hour = tod.hourOfPeriod == 0 ? 12 : tod.hourOfPeriod;
+    final period = tod.period == DayPeriod.am ? 'AM' : 'PM';
+    final minutes = tod.minute.toString().padLeft(2, '0');
+    return '$hour:$minutes $period';
   }
 }
