@@ -7,24 +7,20 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Good Morning',
-                  style: AppTextStyle.styleRegular20(context),
-                ),
-              ),
-              const Expanded(child: PillCardListView())
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Good Morning',
+              style: AppTextStyle.styleRegular20(context),
+            ),
           ),
-        ),
+          const Expanded(child: PillCardListView())
+        ],
       ),
     );
   }
