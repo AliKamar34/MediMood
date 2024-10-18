@@ -10,7 +10,7 @@ class CustomTransparentTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintText: 'title',
+        hintText: 'Title',
         hintStyle: AppTextStyle.styleMedium18(context),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(

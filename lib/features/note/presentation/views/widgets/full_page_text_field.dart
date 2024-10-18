@@ -10,7 +10,7 @@ class CustomFullTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintText: "note",
+        hintText: "Note",
         hintStyle: AppTextStyle.styleRegular18(context),
       ),
       scrollPadding: const EdgeInsets.all(20.0),
