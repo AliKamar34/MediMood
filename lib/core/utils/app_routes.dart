@@ -4,6 +4,7 @@ import 'package:new_app/features/home/presentation/views/edit_pill_view.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
 import 'package:new_app/features/home/presentation/views/nav_bar_view.dart';
 import 'package:new_app/features/home/presentation/views/pills_view.dart';
+import 'package:new_app/features/note/presentation/views/edit_notes_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
 
 abstract class AppRoutes {
@@ -11,6 +12,7 @@ abstract class AppRoutes {
   static const String kPillsView = '/pillsView';
   static const String kEditPillView = '/editPillView';
   static const String kNotesView = '/notesView';
+  static const String kEditNotesView = '/editnotesView';
 
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -42,6 +44,12 @@ abstract class AppRoutes {
         path: kNotesView,
         builder: (BuildContext context, GoRouterState state) {
           return const NotesView();
+        },
+      ),
+      GoRoute(
+        path: kEditNotesView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const EditNotesView();
         },
       ),
     ],
