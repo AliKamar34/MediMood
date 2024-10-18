@@ -32,7 +32,7 @@ class NoteCard extends StatelessWidget {
             ),
           ),
           trailing: Text(
-            'data',
+            'date',
             style: AppTextStyle.styleRegular14(context),
           ),
         ),
