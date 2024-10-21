@@ -4,11 +4,13 @@ import 'package:new_app/core/utils/app_text_style.dart';
 class CustomTransparentTextField extends StatelessWidget {
   const CustomTransparentTextField({
     super.key,
+    this.onSaved,
   });
-
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
       decoration: InputDecoration(
         hintText: 'Title',
         hintStyle: AppTextStyle.styleMedium18(context),
