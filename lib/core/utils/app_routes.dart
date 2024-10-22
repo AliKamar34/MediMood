@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_app/features/home/presentation/views/edit_pill_view.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
 import 'package:new_app/features/home/presentation/views/nav_bar_view.dart';
 import 'package:new_app/features/home/presentation/views/pills_view.dart';
+import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
+import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/edit_notes_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
 
@@ -49,7 +52,10 @@ abstract class AppRoutes {
       GoRoute(
         path: kEditNotesView,
         builder: (BuildContext context, GoRouterState state) {
-          return const EditNotesView();
+          return BlocProvider(
+            create: (context) => AddNotesCubit(NoteRepoImpl()),
+            child: const EditNotesView(),
+          );
         },
       ),
     ],

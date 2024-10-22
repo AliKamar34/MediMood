@@ -84,8 +84,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
               iconSize: 0,
               text: 'notes',
               onPressed: () {
-                Hive.openBox(Constant.kNotesBox);
                 Hive.registerAdapter(NoteModelAdapter());
+                Hive.openBox(Constant.kNotesBox);
               },
             ),
           ],

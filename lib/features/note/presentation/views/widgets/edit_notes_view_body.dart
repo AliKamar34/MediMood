@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 
 import 'package:new_app/features/note/presentation/views/widgets/edit_note_form.dart';
 
@@ -7,10 +9,20 @@ class EditNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12),
-        child: EditNoteForm(),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: BlocBuilder<AddNotesCubit, AddNotesState>(
+          builder: (context, state) {
+            if (state is AddNotesLoading) {
+              return const CircularProgressIndicator();
+            } else if (state is AddNotesFailuer) {
+              return const Text('error');
+            } else {
+              return const EditNoteForm();
+            }
+          },
+        ),
       ),
     );
   }
