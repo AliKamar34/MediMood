@@ -7,6 +7,7 @@ import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/core/utils/constant.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
 import 'package:new_app/features/home/presentation/views/pills_view.dart';
+import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
 
 class CustomNavBar extends StatefulWidget {
@@ -84,6 +85,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               text: 'notes',
               onPressed: () {
                 Hive.openBox(Constant.kNotesBox);
+                Hive.registerAdapter(NoteModelAdapter());
               },
             ),
           ],
