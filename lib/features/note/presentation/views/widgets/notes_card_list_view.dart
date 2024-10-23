@@ -14,7 +14,9 @@ class NotesCardListView extends StatelessWidget {
           return ListView.builder(
             itemCount: state.notes.length,
             itemBuilder: (context, index) {
-              return const NoteCard();
+              return NoteCard(
+                noteModel: state.notes[index],
+              );
             },
           );
         } else if (state is GetNotesLoading) {

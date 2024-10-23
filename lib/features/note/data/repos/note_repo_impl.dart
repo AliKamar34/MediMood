@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:new_app/core/error/failuer_error.dart';
@@ -22,6 +24,7 @@ class NoteRepoImpl extends NoteRepo {
     try {
       var noteBox = Hive.box<NoteModel>(Constant.kNotesBox);
       List<NoteModel> notes = noteBox.values.toList();
+      log('message2');
       return right(notes);
     } catch (e) {
       return left(Failure(e.toString()));

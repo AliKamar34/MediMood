@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
+import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
+import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/widgets/custom_transparent_text_field.dart';
 import 'package:new_app/features/note/presentation/views/widgets/edit_note_view_app_bar.dart';
 import 'package:new_app/features/note/presentation/views/widgets/full_page_text_field.dart';
@@ -33,9 +37,11 @@ class _EditNoteFormState extends State<EditNoteForm> {
                   NoteModel(
                     title: title ?? '',
                     content: content ?? '',
-                    date: DateTime.now().toString(),
+                    date: DateFormat('dd/MM/yy').format(DateTime.now()),
                   ),
                 );
+                BlocProvider.of<GetNotesCubit>(context).getNotes();
+                GoRouter.of(context).pop(AppRoutes.kNotesView);
               }
             },
           ),

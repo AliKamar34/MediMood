@@ -9,12 +9,9 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetNotesCubit(NoteRepoImpl())..getNotes(),
-      child: const Scaffold(
-        body: SafeArea(
-          child: NotesViewBody(),
-        ),
+    return const Scaffold(
+      body: SafeArea(
+        child: NotesViewBody(),
       ),
     );
   }

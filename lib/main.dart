@@ -5,6 +5,8 @@ import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/core/utils/constant.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
+import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
+import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/simple_bloc_observer.dart';
 
 void main() async {
@@ -20,11 +22,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRoutes.router,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: ColorsAssetData.scaffoldColor,
+    return BlocProvider(
+      create: (context) => GetNotesCubit(NoteRepoImpl())..getNotes(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRoutes.router,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: ColorsAssetData.scaffoldColor,
+        ),
       ),
     );
   }
