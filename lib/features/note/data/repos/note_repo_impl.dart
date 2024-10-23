@@ -16,4 +16,15 @@ class NoteRepoImpl extends NoteRepo {
       return left(Failure(e.toString()));
     }
   }
+
+  @override
+  Either<Failure, List<NoteModel>> getNotes() {
+    try {
+      var noteBox = Hive.box<NoteModel>(Constant.kNotesBox);
+      List<NoteModel> notes = noteBox.values.toList();
+      return right(notes);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
 }

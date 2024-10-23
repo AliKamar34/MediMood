@@ -83,10 +83,6 @@ class _CustomNavBarState extends State<CustomNavBar> {
               icon: Icons.circle,
               iconSize: 0,
               text: 'notes',
-              onPressed: () {
-                Hive.registerAdapter(NoteModelAdapter());
-                Hive.openBox(Constant.kNotesBox);
-              },
             ),
           ],
           selectedIndex: selectedIndex,
