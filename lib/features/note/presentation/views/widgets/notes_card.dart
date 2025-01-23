@@ -28,7 +28,6 @@ class NoteCard extends StatelessWidget {
           GoRouter.of(context).push(AppRoutes.kEditNotesView, extra: noteModel);
         },
         onLongPress: () {
-          log('djhkgdshjkgdskhjgds');
           showDialog(
             context: context,
             builder: (BuildContext context) {

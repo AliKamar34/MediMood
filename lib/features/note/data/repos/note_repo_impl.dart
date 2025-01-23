@@ -24,7 +24,6 @@ class NoteRepoImpl extends NoteRepo {
     try {
       var noteBox = Hive.box<NoteModel>(Constant.kNotesBox);
       List<NoteModel> notes = noteBox.values.toList();
-      log('message2');
       return right(notes);
     } catch (e) {
       return left(Failure(e.toString()));

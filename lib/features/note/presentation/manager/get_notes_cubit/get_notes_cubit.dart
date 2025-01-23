@@ -11,7 +11,6 @@ class GetNotesCubit extends Cubit<GetNotesState> {
   GetNotesCubit(this.noteRepo) : super(GetNotesInitial());
   final NoteRepo noteRepo;
   getNotes() {
-    log('message');
     emit(GetNotesLoading());
     var result = noteRepo.getNotes();
     result.fold(
