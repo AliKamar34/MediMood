@@ -5,12 +5,15 @@ class CustomFullTextField extends StatelessWidget {
   const CustomFullTextField({
     super.key,
     this.onSaved,
+    this.initialValue,
   });
   final void Function(String?)? onSaved;
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved,
+      initialValue: initialValue,
       decoration: InputDecoration(
         hintText: "Note",
         hintStyle: AppTextStyle.styleRegular18(context),
