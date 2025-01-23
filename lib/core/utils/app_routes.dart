@@ -8,6 +8,7 @@ import 'package:new_app/features/home/presentation/views/pills_view.dart';
 import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
 import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/add_notes_view.dart';
+import 'package:new_app/features/note/presentation/views/edit_note_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
 
 abstract class AppRoutes {
@@ -16,6 +17,7 @@ abstract class AppRoutes {
   static const String kEditPillView = '/editPillView';
   static const String kNotesView = '/notesView';
   static const String kAddNotesView = '/addnotesView';
+  static const String kEditNotesView = '/editnotesView';
 
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -56,6 +58,12 @@ abstract class AppRoutes {
             create: (context) => AddNotesCubit(NoteRepoImpl()),
             child: const AddNotesView(),
           );
+        },
+      ),
+      GoRoute(
+        path: kEditNotesView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const EditNoteView();
         },
       ),
     ],
