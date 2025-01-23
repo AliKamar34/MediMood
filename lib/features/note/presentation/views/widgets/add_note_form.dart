@@ -7,19 +7,19 @@ import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/widgets/custom_transparent_text_field.dart';
-import 'package:new_app/features/note/presentation/views/widgets/edit_note_view_app_bar.dart';
+import 'package:new_app/features/note/presentation/views/widgets/add_note_view_app_bar.dart';
 import 'package:new_app/features/note/presentation/views/widgets/full_page_text_field.dart';
 
-class EditNoteForm extends StatefulWidget {
-  const EditNoteForm({
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
     super.key,
   });
 
   @override
-  State<EditNoteForm> createState() => _EditNoteFormState();
+  State<AddNoteForm> createState() => _AddNoteFormState();
 }
 
-class _EditNoteFormState extends State<EditNoteForm> {
+class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   String? title, content;
   @override
@@ -29,7 +29,7 @@ class _EditNoteFormState extends State<EditNoteForm> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          EditNoteViewAppBar(
+          AddNoteViewAppBar(
             onTap: () {
               if (formKey.currentState != null) {
                 formKey.currentState!.save();

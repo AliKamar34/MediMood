@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EditNoteViewAppBar extends StatelessWidget {
-  const EditNoteViewAppBar({super.key, this.onTap});
+class AddNoteViewAppBar extends StatelessWidget {
+  const AddNoteViewAppBar({super.key, this.onTap});
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {

@@ -25,7 +25,7 @@ class NoteCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          GoRouter.of(context).push(AppRoutes.kEditNotesView);
+          GoRouter.of(context).push(AppRoutes.kAddNotesView);
         },
         onLongPress: () {
           log('djhkgdshjkgdskhjgds');

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 
-import 'package:new_app/features/note/presentation/views/widgets/edit_note_form.dart';
+import 'package:new_app/features/note/presentation/views/widgets/add_note_form.dart';
 
-class EditNotesViewBody extends StatelessWidget {
-  const EditNotesViewBody({super.key});
+class AddNotesViewBody extends StatelessWidget {
+  const AddNotesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class EditNotesViewBody extends StatelessWidget {
             } else if (state is AddNotesFailuer) {
               return const Text('error');
             } else {
-              return const EditNoteForm();
+              return const AddNoteForm();
             }
           },
         ),

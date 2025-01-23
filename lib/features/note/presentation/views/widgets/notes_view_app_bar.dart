@@ -22,7 +22,7 @@ class NotesViewAppBar extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).push(AppRoutes.kEditNotesView);
+              GoRouter.of(context).push(AppRoutes.kAddNotesView);
             },
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all(
