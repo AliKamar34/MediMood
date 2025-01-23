@@ -1,14 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
-import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
-import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/widgets/custom_deleting_alert.dart';
 
 class NoteCard extends StatelessWidget {
