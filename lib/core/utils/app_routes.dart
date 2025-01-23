@@ -8,6 +8,7 @@ import 'package:new_app/features/home/presentation/views/pills_view.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
 import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
+import 'package:new_app/features/note/presentation/manager/edit_note_cubit/edit_note_cubit.dart';
 import 'package:new_app/features/note/presentation/views/add_notes_view.dart';
 import 'package:new_app/features/note/presentation/views/edit_note_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
@@ -65,8 +66,11 @@ abstract class AppRoutes {
         path: kEditNotesView,
         builder: (BuildContext context, GoRouterState state) {
           final noteModel = state.extra as NoteModel;
-          return EditNoteView(
-            noteModel: noteModel,
+          return BlocProvider(
+            create: (context) => EditNoteCubit(NoteRepoImpl()),
+            child: EditNoteView(
+              noteModel: noteModel,
+            ),
           );
         },
       ),
