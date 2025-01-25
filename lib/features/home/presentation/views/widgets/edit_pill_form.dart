@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/manager/add_pill_cubit/add_pill_cubit.dart';
+import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
 import 'package:new_app/features/home/presentation/views/widgets/choices_section.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_save_button.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_text_field.dart';
@@ -13,8 +14,9 @@ import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_b
 class EditPillForm extends StatefulWidget {
   const EditPillForm({
     super.key,
+    required this.pillModel,
   });
-
+  final PillModel pillModel;
   @override
   State<EditPillForm> createState() => _EditPillFormState();
 }
@@ -41,6 +43,7 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             CustomTextField(
+              initialValue: widget.pillModel.pillName,
               onSaved: (value) {
                 pillName = value;
               },
@@ -49,6 +52,8 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             ChoicesSection(
+              initialNoOfPills: widget.pillModel.noOfPills,
+              initialBeforeAndAfter: widget.pillModel.beforeAndAfter,
               savedNoOfPills: (value) {
                 noOfPills = value;
               },
@@ -76,7 +81,7 @@ class _EditPillFormState extends State<EditPillForm> {
                       time: time ?? '',
                     ),
                   );
-
+                  BlocProvider.of<GetPillsCubit>(context).getPills();
                   GoRouter.of(context).pop(AppRoutes.kPillsView);
                 }
               },

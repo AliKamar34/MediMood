@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:new_app/features/home/presentation/manager/add_pill_cubit/add_pill_cubit.dart';
 import 'package:new_app/features/home/presentation/views/edit_pill_view.dart';
@@ -46,9 +47,12 @@ abstract class AppRoutes {
       GoRoute(
         path: kEditPillView,
         builder: (BuildContext context, GoRouterState state) {
+          final pillModel = state.extra as PillModel;
           return BlocProvider(
             create: (context) => AddPillCubit(HomeRepoImpl()),
-            child: const EditPillView(),
+            child: EditPillView(
+              pillModel: pillModel,
+            ),
           );
         },
       ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_action_buttons.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card_info.dart';
 
 class PillBottomSheet extends StatelessWidget {
-  const PillBottomSheet({super.key});
-
+  const PillBottomSheet({super.key, required this.pillModel});
+  final PillModel pillModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +30,9 @@ class PillBottomSheet extends StatelessWidget {
                   style: AppTextStyle.styleBold24(context),
                 ),
                 const SizedBox(height: 30),
-                const PillCardInfo(),
+                PillCardInfo(
+                  pillModel: pillModel,
+                ),
                 const Expanded(child: SizedBox()),
                 const PillActionButtons(),
                 const SizedBox(height: 16),
