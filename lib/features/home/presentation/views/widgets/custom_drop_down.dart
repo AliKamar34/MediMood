@@ -7,12 +7,17 @@ class CustomDropDown extends StatelessWidget {
     super.key,
     required this.items,
     required this.label,
+    this.onSaved,
+    this.initialValue,
   });
   final List<String> items;
   final String label;
+  final void Function(String?)? onSaved;
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
+      onSaved: onSaved,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: AppTextStyle.styleRegular18(context).copyWith(
@@ -21,7 +26,7 @@ class CustomDropDown extends StatelessWidget {
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
       ),
-      value: items[0],
+      value: initialValue ?? items[0],
       items: items.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,

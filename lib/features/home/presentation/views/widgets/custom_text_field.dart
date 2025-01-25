@@ -3,11 +3,18 @@ import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
-
+  const CustomTextField({
+    super.key,
+    this.onSaved,
+    this.initialValue,
+  });
+  final void Function(String?)? onSaved;
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      initialValue: initialValue,
       cursorColor: ColorsAssetData.primaryColor,
       decoration: InputDecoration(
         labelText: 'Pill Name',

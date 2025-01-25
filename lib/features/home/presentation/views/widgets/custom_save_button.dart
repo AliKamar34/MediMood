@@ -5,8 +5,9 @@ import 'package:new_app/core/utils/colors_asset_data.dart';
 class CustomSaveButton extends StatelessWidget {
   const CustomSaveButton({
     super.key,
+    required this.onPressed,
   });
-
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -15,7 +16,7 @@ class CustomSaveButton extends StatelessWidget {
           ColorsAssetData.primaryColor,
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

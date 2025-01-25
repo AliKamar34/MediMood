@@ -2,52 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 
-class CustomTimePicker extends StatelessWidget {
-  const CustomTimePicker({super.key});
+class CustomTimePicker extends StatefulWidget {
+  const CustomTimePicker({super.key, required this.onTimeSelected});
+  final Function(String) onTimeSelected;
+
+  @override
+  State<CustomTimePicker> createState() => _CustomTimePickerState();
+}
+
+class _CustomTimePickerState extends State<CustomTimePicker> {
+  TimeOfDay selectedTime = TimeOfDay.now();
+
+  Future<void> selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    if (picked != null && picked != selectedTime) {
+      setState(() {
+        selectedTime = picked;
+      });
+      widget.onTimeSelected(selectedTime.format(context));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    TimeOfDay selectedTime = TimeOfDay.now();
-
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          formatTimeOfDay(selectedTime),
+          selectedTime.format(context),
           style: AppTextStyle.styleMedium18(context),
         ),
-        const SizedBox(width: 10),
+        const Expanded(child: SizedBox(width: 10)),
         ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(
-              ColorsAssetData.primaryColor,
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(
+                ColorsAssetData.primaryColor,
+              ),
             ),
-          ),
-          onPressed: () async {
-            final TimeOfDay? timeOfDay = await showTimePicker(
-              context: context,
-              initialTime: selectedTime,
-              initialEntryMode: TimePickerEntryMode.dial,
-            );
-            if (timeOfDay != null) {
-              selectedTime = timeOfDay;
-            }
-          },
-          child: Text(
-            'time',
-            style: AppTextStyle.styleMedium14(context).copyWith(
-              color: ColorsAssetData.scaffoldColor,
-            ),
-          ),
-        ),
+            onPressed: () => selectTime(context),
+            child: Text(
+              'Select Time',
+              style: AppTextStyle.styleMedium14(context).copyWith(
+                color: ColorsAssetData.scaffoldColor,
+              ),
+            )),
       ],
     );
-  }
-
-  String formatTimeOfDay(TimeOfDay tod) {
-    final hour = tod.hourOfPeriod == 0 ? 12 : tod.hourOfPeriod;
-    final period = tod.period == DayPeriod.am ? 'AM' : 'PM';
-    final minutes = tod.minute.toString().padLeft(2, '0');
-    return '$hour:$minutes $period';
   }
 }
