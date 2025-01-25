@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:new_app/core/error/failuer_error.dart';

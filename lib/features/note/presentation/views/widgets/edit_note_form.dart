@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
-import 'package:new_app/features/note/presentation/manager/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/manager/edit_note_cubit/edit_note_cubit.dart';
 import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/features/note/presentation/views/widgets/custom_transparent_text_field.dart';

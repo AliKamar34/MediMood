@@ -51,7 +51,7 @@ abstract class AppTextStyle {
 
   static TextStyle styleBold24(context) {
     return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontSize: getResponsiveFontSize(context, fontSize: 22),
       fontFamily: 'Roboto',
       fontWeight: FontWeight.w700,
     );
@@ -59,7 +59,7 @@ abstract class AppTextStyle {
 
   static TextStyle styleBold33(context) {
     return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 33),
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
       fontFamily: 'Roboto',
       fontWeight: FontWeight.w700,
     );
