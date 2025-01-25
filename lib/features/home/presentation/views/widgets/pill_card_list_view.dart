@@ -21,7 +21,9 @@ class PillCardListView extends StatelessWidget {
           return ListView.builder(
             itemCount: state.pills.length,
             itemBuilder: (context, index) {
-              return const PillCard();
+              return PillCard(
+                pillModel: state.pills[index],
+              );
             },
           );
         } else if (state is GetPillsFailuer) {
