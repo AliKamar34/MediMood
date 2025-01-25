@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card.dart';
 
 class PillCardListView extends StatelessWidget {
@@ -6,10 +10,29 @@ class PillCardListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return const PillCard();
+    return BlocBuilder<GetPillsCubit, GetPillsState>(
+      builder: (context, state) {
+        if (state is GetPillsLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (state is GetPillsSuccess) {
+          log(state.pills.length.toString());
+          return ListView.builder(
+            itemCount: state.pills.length,
+            itemBuilder: (context, index) {
+              return const PillCard();
+            },
+          );
+        } else if (state is GetPillsFailuer) {
+          return Center(
+            child: Text(state.message),
+          );
+        } else {
+          return Center(
+            child: Text(state.toString()),
+          );
+        }
       },
     );
   }
