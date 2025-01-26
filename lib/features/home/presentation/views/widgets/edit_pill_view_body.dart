@@ -5,8 +5,8 @@ import 'package:new_app/features/home/presentation/manager/add_pill_cubit/add_pi
 import 'package:new_app/features/home/presentation/views/widgets/edit_pill_form.dart';
 
 class EditPillViewBody extends StatelessWidget {
-  const EditPillViewBody({super.key, required this.pillModel});
-  final PillModel pillModel;
+  const EditPillViewBody({super.key, this.pillModel});
+  final PillModel? pillModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

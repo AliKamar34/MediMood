@@ -3,9 +3,13 @@ import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 
 class CustomTimePicker extends StatefulWidget {
-  const CustomTimePicker({super.key, required this.onTimeSelected});
+  const CustomTimePicker({
+    super.key,
+    required this.onTimeSelected,
+    this.initialTime,
+  });
   final Function(String) onTimeSelected;
-
+  final String? initialTime;
   @override
   State<CustomTimePicker> createState() => _CustomTimePickerState();
 }
@@ -31,7 +35,9 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
     return Row(
       children: [
         Text(
-          selectedTime.format(context),
+          widget.initialTime == ''
+              ? selectedTime.format(context)
+              : widget.initialTime!,
           style: AppTextStyle.styleMedium18(context),
         ),
         const Expanded(child: SizedBox(width: 10)),

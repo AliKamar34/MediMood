@@ -14,9 +14,9 @@ import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_b
 class EditPillForm extends StatefulWidget {
   const EditPillForm({
     super.key,
-    required this.pillModel,
+    this.pillModel,
   });
-  final PillModel pillModel;
+  final PillModel? pillModel;
   @override
   State<EditPillForm> createState() => _EditPillFormState();
 }
@@ -43,7 +43,7 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             CustomTextField(
-              initialValue: widget.pillModel.pillName,
+              initialValue: widget.pillModel?.pillName,
               onSaved: (value) {
                 pillName = value;
               },
@@ -52,8 +52,8 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             ChoicesSection(
-              initialNoOfPills: widget.pillModel.noOfPills,
-              initialBeforeAndAfter: widget.pillModel.beforeAndAfter,
+              initialNoOfPills: widget.pillModel?.noOfPills,
+              initialBeforeAndAfter: widget.pillModel?.beforeAndAfter,
               savedNoOfPills: (value) {
                 noOfPills = value;
               },
@@ -66,6 +66,7 @@ class _EditPillFormState extends State<EditPillForm> {
               child: SizedBox(height: 50),
             ),
             CustomTimePicker(
+              initialTime: widget.pillModel?.time,
               onTimeSelected: updateTime,
             ),
             const Expanded(child: SizedBox()),

@@ -34,7 +34,9 @@ class PillBottomSheet extends StatelessWidget {
                   pillModel: pillModel,
                 ),
                 const Expanded(child: SizedBox()),
-                const PillActionButtons(),
+                PillActionButtons(
+                  pillModel: pillModel,
+                ),
                 const SizedBox(height: 16),
               ],
             ),

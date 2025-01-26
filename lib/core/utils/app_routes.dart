@@ -47,7 +47,7 @@ abstract class AppRoutes {
       GoRoute(
         path: kEditPillView,
         builder: (BuildContext context, GoRouterState state) {
-          final pillModel = state.extra as PillModel;
+          final pillModel = state.extra as PillModel?;
           return BlocProvider(
             create: (context) => AddPillCubit(HomeRepoImpl()),
             child: EditPillView(
