@@ -27,4 +27,16 @@ class HomeRepoImpl extends HomeRepo {
       return left(Failure(e.toString()));
     }
   }
+
+  @override
+  Either<Failure, List<PillModel>> getPeriodPills(String period) {
+    try {
+      var pillsBox = Hive.box<PillModel>(Constant.kPillsBox);
+      List<PillModel> pills =
+          pillsBox.values.where((element) => element.period == period).toList();
+      return right(pills);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
 }

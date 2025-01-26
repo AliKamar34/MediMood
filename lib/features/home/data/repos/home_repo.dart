@@ -5,4 +5,5 @@ import 'package:new_app/features/home/data/models/pill_model.dart';
 abstract class HomeRepo {
   Future<Either<Failure, void>> addPill(PillModel pill);
   Either<Failure, List<PillModel>> getPills();
+  Either<Failure, List<PillModel>> getPeriodPills(String period);
 }
