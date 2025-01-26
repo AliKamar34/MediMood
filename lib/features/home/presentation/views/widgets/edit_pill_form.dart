@@ -73,6 +73,7 @@ class _EditPillFormState extends State<EditPillForm> {
             CustomSaveButton(
               onPressed: () {
                 if (formKey.currentState != null) {
+                  widget.pillModel?.delete();
                   formKey.currentState!.save();
                   BlocProvider.of<AddPillCubit>(context).addPill(
                     PillModel(
