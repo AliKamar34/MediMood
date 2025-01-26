@@ -12,11 +12,14 @@ class PillModel extends HiveObject {
   final String beforeAndAfter;
   @HiveField(4)
   final String time;
+  @HiveField(5)
+  final String period;
 
   PillModel({
     required this.pillName,
     required this.noOfPills,
     required this.beforeAndAfter,
     required this.time,
+    required this.period,
   });
 }
