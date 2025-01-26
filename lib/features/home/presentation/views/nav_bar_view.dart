@@ -47,7 +47,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
           tabs: [
             GButton(
               leading: SvgPicture.asset(
-                'asstes/images/Home.svg',
+                'assets/images/Home.svg',
                 height: 28,
                 width: 28,
               ),
@@ -57,7 +57,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             ),
             GButton(
               leading: SvgPicture.asset(
-                'asstes/images/pill.svg',
+                'assets/images/pill.svg',
                 height: 28,
                 width: 28,
               ),
@@ -67,7 +67,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             ),
             GButton(
               leading: SvgPicture.asset(
-                'asstes/images/Document.svg',
+                'assets/images/Document.svg',
                 height: 28,
                 width: 28,
               ),

@@ -1,5 +1,6 @@
 abstract class AssetsData {
-  static const homeIcon = 'asstes/images/Home.svg';
-  static const pillIcon = 'asstes/images/pill.svg';
-  static const noteIcon = 'asstes/images/Document.svg';
+  static const homeIcon = 'assets/images/Home.svg';
+  static const pillIcon = 'assets/images/pill.svg';
+  static const noteIcon = 'assets/images/Document.svg';
+  static const logo = 'assets/images/logo.png';
 }

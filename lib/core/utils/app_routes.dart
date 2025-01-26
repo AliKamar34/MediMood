@@ -15,8 +15,10 @@ import 'package:new_app/features/note/presentation/manager/edit_note_cubit/edit_
 import 'package:new_app/features/note/presentation/views/add_notes_view.dart';
 import 'package:new_app/features/note/presentation/views/edit_note_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
+import 'package:new_app/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRoutes {
+  static const String kNavBarView = '/navBarView';
   static const String kHomeView = '/homeView';
   static const String kPillsView = '/pillsView';
   static const String kEditPillView = '/editPillView';
@@ -28,6 +30,12 @@ abstract class AppRoutes {
     routes: <RouteBase>[
       GoRoute(
         path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SplashView();
+        },
+      ),
+      GoRoute(
+        path: kNavBarView,
         builder: (BuildContext context, GoRouterState state) {
           return const CustomNavBar();
         },
