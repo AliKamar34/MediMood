@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_deleting_alert.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_bottom_sheet.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card_info.dart';
 
@@ -20,6 +21,16 @@ class PillCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: InkWell(
+        onLongPress: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return DeletinPillgAlert(
+                pillModel: pillModel,
+              );
+            },
+          );
+        },
         onTap: () {
           showModalBottomSheet(
             context: context,
