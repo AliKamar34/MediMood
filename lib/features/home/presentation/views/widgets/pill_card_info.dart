@@ -4,6 +4,8 @@ import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/assets_data.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
+import 'package:new_app/features/home/data/repos/home_repo.dart';
+import 'package:new_app/features/home/data/repos/home_repo_impl.dart';
 
 class PillCardInfo extends StatelessWidget {
   const PillCardInfo({
@@ -13,14 +15,27 @@ class PillCardInfo extends StatelessWidget {
   final PillModel pillModel;
   @override
   Widget build(BuildContext context) {
+    HomeRepoImpl().resetPillIfTimePassed(pillModel);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          pillModel.time,
-          style: AppTextStyle.styleBold24(context).copyWith(
-            color: ColorsAssetData.primaryColor,
-          ),
+        Row(
+          children: [
+            Text(
+              pillModel.time,
+              style: AppTextStyle.styleBold24(context).copyWith(
+                color: ColorsAssetData.primaryColor,
+              ),
+            ),
+            const Expanded(child: SizedBox()),
+            pillModel.isTaken
+                ? const Icon(
+                    Icons.done,
+                    size: 30,
+                    color: ColorsAssetData.primaryColor,
+                  )
+                : const SizedBox(),
+          ],
         ),
         ListTile(
           leading: SvgPicture.asset(AssetsData.pillIcon),

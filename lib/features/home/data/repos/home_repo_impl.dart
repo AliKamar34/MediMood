@@ -39,4 +39,17 @@ class HomeRepoImpl extends HomeRepo {
       return left(Failure(e.toString()));
     }
   }
+
+  @override
+  void resetPillIfTimePassed(PillModel pill) {
+    if (pill.lastTakenTime != null) {
+      final timeElapsed =
+          DateTime.now().difference(pill.lastTakenTime!).inHours;
+      if (timeElapsed >= 15) {
+        pill.isTaken = false;
+        pill.lastTakenTime = null;
+        pill.save();
+      }
+    }
+  }
 }

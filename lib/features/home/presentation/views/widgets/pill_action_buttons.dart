@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
+import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
 
 class PillActionButtons extends StatelessWidget {
   const PillActionButtons({
@@ -17,7 +19,13 @@ class PillActionButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            pillModel!.isTaken = true;
+            pillModel!.lastTakenTime = DateTime.now();
+            pillModel!.save();
+            BlocProvider.of<GetPillsCubit>(context).getPills();
+            GoRouter.of(context).pop();
+          },
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all(
               ColorsAssetData.primaryColor,
