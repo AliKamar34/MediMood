@@ -61,15 +61,12 @@ class _EditPillFormState extends State<EditPillForm> {
                 beforeAndAfter = value;
               },
             ),
-            const FittedBox(
-              fit: BoxFit.scaleDown,
-              child: SizedBox(height: 50),
-            ),
+            const Flexible(child: SizedBox(height: 50)),
             CustomTimePicker(
               initialTime: widget.pillModel?.time,
               onTimeSelected: updateTime,
             ),
-            const Expanded(child: SizedBox()),
+            const Expanded(flex: 6, child: SizedBox()),
             CustomSaveButton(
               onPressed: () {
                 if (formKey.currentState != null) {
