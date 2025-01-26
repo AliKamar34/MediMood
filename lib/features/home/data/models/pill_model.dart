@@ -14,6 +14,10 @@ class PillModel extends HiveObject {
   final String time;
   @HiveField(5)
   final String period;
+  @HiveField(6)
+  bool isTaken;
+  @HiveField(7)
+  DateTime? lastTakenTime;
 
   PillModel({
     required this.pillName,
@@ -21,5 +25,7 @@ class PillModel extends HiveObject {
     required this.beforeAndAfter,
     required this.time,
     required this.period,
+    this.isTaken = false,
+    this.lastTakenTime,
   });
 }

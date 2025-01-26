@@ -22,13 +22,15 @@ class PillModelAdapter extends TypeAdapter<PillModel> {
       beforeAndAfter: fields[3] as String,
       time: fields[4] as String,
       period: fields[5] as String,
+      isTaken: fields[6] as bool,
+      lastTakenTime: fields[7] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, PillModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(1)
       ..write(obj.pillName)
       ..writeByte(2)
@@ -38,7 +40,11 @@ class PillModelAdapter extends TypeAdapter<PillModel> {
       ..writeByte(4)
       ..write(obj.time)
       ..writeByte(5)
-      ..write(obj.period);
+      ..write(obj.period)
+      ..writeByte(6)
+      ..write(obj.isTaken)
+      ..writeByte(7)
+      ..write(obj.lastTakenTime);
   }
 
   @override
