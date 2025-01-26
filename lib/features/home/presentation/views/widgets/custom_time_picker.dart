@@ -35,7 +35,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
     return Row(
       children: [
         Text(
-          widget.initialTime == ''
+          widget.initialTime == '' || widget.initialTime == null
               ? selectedTime.format(context)
               : widget.initialTime!,
           style: AppTextStyle.styleMedium18(context),

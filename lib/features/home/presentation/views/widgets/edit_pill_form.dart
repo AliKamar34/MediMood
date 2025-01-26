@@ -6,6 +6,7 @@ import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/manager/add_pill_cubit/add_pill_cubit.dart';
 import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
 import 'package:new_app/features/home/presentation/views/widgets/choices_section.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_drop_down.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_save_button.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_text_field.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_time_picker.dart';
@@ -23,7 +24,7 @@ class EditPillForm extends StatefulWidget {
 
 class _EditPillFormState extends State<EditPillForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
-  String? pillName, noOfPills, beforeAndAfter, time;
+  String? pillName, noOfPills, beforeAndAfter, time, period;
   void updateTime(String pickedTime) {
     setState(() {
       time = pickedTime;
@@ -61,7 +62,22 @@ class _EditPillFormState extends State<EditPillForm> {
                 beforeAndAfter = value;
               },
             ),
-            const Flexible(child: SizedBox(height: 50)),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomDropDown(
+              initialValue: widget.pillModel?.period,
+              onSaved: (value) {
+                period = value;
+              },
+              label: 'Pills period',
+              items: const [
+                'BreakFast',
+                'Lunch',
+                'Dinner',
+              ],
+            ),
+            const Flexible(child: SizedBox(height: 30)),
             CustomTimePicker(
               initialTime: widget.pillModel?.time,
               onTimeSelected: updateTime,
@@ -78,6 +94,7 @@ class _EditPillFormState extends State<EditPillForm> {
                       noOfPills: noOfPills ?? '',
                       beforeAndAfter: beforeAndAfter ?? '',
                       time: time ?? '',
+                      period: period ?? '',
                     ),
                   );
                   BlocProvider.of<GetPillsCubit>(context).getPills();
