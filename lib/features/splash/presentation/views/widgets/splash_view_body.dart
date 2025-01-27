@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/core/utils/assets_data.dart';
 import 'package:new_app/features/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -20,8 +21,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    navigationView();
+    // navigationView();
     initAnimation();
+    checkFirstRun();
   }
 
   @override
@@ -67,12 +69,33 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
-  void navigationView() {
-    Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        GoRouter.of(context).pushReplacement(AppRoutes.kNavBarView);
-      },
-    );
+  // void navigationView() {
+  //   Future.delayed(
+  //     const Duration(seconds: 2),
+  //     () {
+  //       GoRouter.of(context).pushReplacement(AppRoutes.kNavBarView);
+  //     },
+  //   );
+  // }
+  Future<void> checkFirstRun() async {
+    final prefs = await SharedPreferences.getInstance();
+    final bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
+
+    if (isFirstRun) {
+      await prefs.setBool('isFirstRun', false);
+      Future.delayed(
+        const Duration(seconds: 2),
+        () {
+          GoRouter.of(context).pushReplacement(AppRoutes.kOnBoardingView);
+        },
+      );
+    } else {
+      Future.delayed(
+        const Duration(seconds: 2),
+        () {
+          GoRouter.of(context).pushReplacement(AppRoutes.kNavBarView);
+        },
+      );
+    }
   }
 }

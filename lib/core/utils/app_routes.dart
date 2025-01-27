@@ -15,6 +15,7 @@ import 'package:new_app/features/note/presentation/manager/edit_note_cubit/edit_
 import 'package:new_app/features/note/presentation/views/add_notes_view.dart';
 import 'package:new_app/features/note/presentation/views/edit_note_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
+import 'package:new_app/features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'package:new_app/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRoutes {
@@ -25,6 +26,7 @@ abstract class AppRoutes {
   static const String kNotesView = '/notesView';
   static const String kAddNotesView = '/addnotesView';
   static const String kEditNotesView = '/editnotesView';
+  static const String kOnBoardingView = '/onBoardingView';
 
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -89,6 +91,12 @@ abstract class AppRoutes {
               noteModel: noteModel,
             ),
           );
+        },
+      ),
+      GoRoute(
+        path: kOnBoardingView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const OnBoardingView();
         },
       ),
     ],
