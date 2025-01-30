@@ -10,6 +10,7 @@
 - **Progress Tracking**: Add notes about your health condition and progress.
 - **Reminders**: Get timely reminders to take your medication.
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation.
+- **Notifications**: Send notifications in schedule time.
 
 ---
 
