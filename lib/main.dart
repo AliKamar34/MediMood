@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:new_app/core/services/notifications_service.dart';
 import 'package:new_app/core/utils/app_routes.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/core/utils/constant.dart';
@@ -14,6 +15,7 @@ import 'package:new_app/simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotifications();
   await Hive.initFlutter();
   Hive.registerAdapter(PillModelAdapter());
   await Hive.openBox<PillModel>(Constant.kPillsBox);

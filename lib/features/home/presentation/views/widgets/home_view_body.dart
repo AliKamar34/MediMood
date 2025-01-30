@@ -36,11 +36,12 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: BlocProvider(
-            create: (context) => GetPeriodPillsCubit(HomeRepoImpl())
-              ..getPeriodPills(getMealPeriod()),
-            child: const MealPeriodPillsListView(),
-          ))
+            child: BlocProvider(
+              create: (context) => GetPeriodPillsCubit(HomeRepoImpl())
+                ..getPeriodPills(getMealPeriod()),
+              child: const MealPeriodPillsListView(),
+            ),
+          ),
         ],
       ),
     );
