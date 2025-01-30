@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -55,6 +56,8 @@ class NotificationService {
     );
   }
 
+  final String scheduledTimesKey = 'scheduledTimes';
+
   Future<void> scheduleNotification({
     required String title,
     required String body,
@@ -71,6 +74,18 @@ class NotificationService {
       hour,
       minute,
     );
+    String pillKey = '${title}_$hour:$minute';
+    final prefs = await SharedPreferences.getInstance();
+    List<String> scheduledTimes = prefs.getStringList(scheduledTimesKey) ?? [];
+    if (scheduledTimes.contains(pillKey)) {
+      log("Notification for $pillKey is already scheduled!");
+      return;
+    }
+
+    scheduledTimes.add(pillKey);
+    await prefs.setStringList(scheduledTimesKey, scheduledTimes);
+    log("Scheduling notification for $pillKey at $hour:$minute");
+
     log('Notification scheduled at $hour:$minute');
     await notificationsPlugin.zonedSchedule(
       id ?? 0,

@@ -19,33 +19,24 @@ class PillCardListView extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is GetPillsSuccess) {
-          bool notificationsScheduled = false;
-          void scheduleAllPills(List<PillModel> pills) {
-            final notificationService = NotificationService();
-
-            for (var pill in pills) {
-              List<String> parts = pill.time.split(" ");
-              List<String> timeParts = parts[0].split(":");
-              int pillHour = int.parse(timeParts[0]);
-              int pillMinute = int.parse(timeParts[1]);
-              String period = parts[1];
-              if (period == "PM" && pillHour != 12) {
-                pillHour += 12;
-              } else if (period == "AM" && pillHour == 12) {
-                pillHour = 0;
-              }
-              notificationService.scheduleNotification(
-                title: 'time to take ${pill.pillName}',
-                body: 'dont forget to take ${pill.pillName}',
-                hour: pillHour,
-                minute: pillMinute,
-              );
+          final notificationService = NotificationService();
+          for (var pill in state.pills) {
+            List<String> parts = pill.time.split(" ");
+            List<String> timeParts = parts[0].split(":");
+            int pillHour = int.parse(timeParts[0]);
+            int pillMinute = int.parse(timeParts[1]);
+            String period = parts[1];
+            if (period == "PM" && pillHour != 12) {
+              pillHour += 12;
+            } else if (period == "AM" && pillHour == 12) {
+              pillHour = 0;
             }
-          }
-
-          if (state.pills.isNotEmpty && !notificationsScheduled) {
-            scheduleAllPills(state.pills);
-            notificationsScheduled = true;
+            notificationService.scheduleNotification(
+              title: 'time to take ${pill.pillName}',
+              body: 'dont forget to take ${pill.pillName}',
+              hour: pillHour,
+              minute: pillMinute,
+            );
           }
           log(state.pills.length.toString());
           return ListView.builder(
