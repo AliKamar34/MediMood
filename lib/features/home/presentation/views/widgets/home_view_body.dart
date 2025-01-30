@@ -15,12 +15,12 @@ class HomeViewBody extends StatelessWidget {
       final now = TimeOfDay.now();
       final int currentHour = now.hour;
 
-      if (currentHour >= 7 && currentHour < 12) {
+      if (currentHour >= 7 && currentHour < 13) {
         return 'Breakfast';
-      } else if (currentHour >= 12 && currentHour < 20) {
-        return 'Dinner';
-      } else {
+      } else if (currentHour >= 13 && currentHour < 19) {
         return 'Lunch';
+      } else {
+        return 'Dinner';
       }
     }
 
