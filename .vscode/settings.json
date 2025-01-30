@@ -2,5 +2,6 @@
     "dart.previewFlutterUiGuides": true,
     "dart.previewFlutterUiGuidesCustomTracking": true,
     "dart.offline": false,
-    "dart.addSdkToTerminalPath": true
+    "dart.addSdkToTerminalPath": true,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -15,12 +15,16 @@ import 'package:new_app/simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  NotificationService().initNotifications();
+
   await Hive.initFlutter();
   Hive.registerAdapter(PillModelAdapter());
   await Hive.openBox<PillModel>(Constant.kPillsBox);
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(Constant.kNotesBox);
+
+  // await NotificationService().requestNotificationPermission();
+  await NotificationService().initNotifications();
+
   Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }

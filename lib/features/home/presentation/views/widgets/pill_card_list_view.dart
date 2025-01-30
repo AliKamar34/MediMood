@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/core/services/notifications_service.dart';
-import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card.dart';
 
