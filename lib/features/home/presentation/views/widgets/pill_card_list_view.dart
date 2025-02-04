@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,13 +31,15 @@ class PillCardListView extends StatelessWidget {
               pillHour = 0;
             }
             notificationService.scheduleNotification(
+              id: (DateTime.now().millisecondsSinceEpoch % 2147483647) +
+                  Random().nextInt(1000),
               title: 'time to take ${pill.pillName}',
               body: 'dont forget to take ${pill.pillName}',
               hour: pillHour,
               minute: pillMinute,
             );
           }
-          log(state.pills.length.toString());
+
           return ListView.builder(
             itemCount: state.pills.length,
             itemBuilder: (context, index) {
