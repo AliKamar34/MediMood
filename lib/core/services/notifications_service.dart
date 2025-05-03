@@ -41,6 +41,12 @@ class NotificationService {
     await notificationsPlugin.initialize(
       const InitializationSettings(android: android, iOS: iOS),
     );
+    if (await Permission.ignoreBatteryOptimizations.isDenied) {
+      await Permission.ignoreBatteryOptimizations.request();
+    }
+    if (await Permission.notification.isDenied) {
+      await Permission.notification.request();
+    }
 
     isInitialized = true;
   }
@@ -159,5 +165,22 @@ class NotificationService {
     await prefs.remove(scheduledTimesKey);
     await notificationsPlugin.cancelAll();
     log('All notifications cancelled');
+  }
+
+  Future<void> cancelNotification(int id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final List<String> scheduledTimes =
+        prefs.getStringList(scheduledTimesKey) ?? [];
+
+    for (String pillKey in scheduledTimes) {
+      if (pillKey.contains(id.toString())) {
+        scheduledTimes.remove(pillKey);
+        break;
+      }
+    }
+
+    await prefs.setStringList(scheduledTimesKey, scheduledTimes);
+    await notificationsPlugin.cancel(id);
+    log('Notification with id $id cancelled');
   }
 }

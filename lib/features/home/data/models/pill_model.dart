@@ -18,6 +18,8 @@ class PillModel extends HiveObject {
   bool isTaken;
   @HiveField(7)
   DateTime? lastTakenTime;
+  @HiveField(8)
+  final int? pillId;
 
   PillModel({
     required this.pillName,
@@ -25,6 +27,7 @@ class PillModel extends HiveObject {
     required this.beforeAndAfter,
     required this.time,
     required this.period,
+    required this.pillId,
     this.isTaken = false,
     this.lastTakenTime,
   });

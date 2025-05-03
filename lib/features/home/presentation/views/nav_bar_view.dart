@@ -42,7 +42,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
           color: ColorsAssetData.secandryColor,
           activeColor: ColorsAssetData.primaryColor,
           iconSize: 24,
-          tabBackgroundColor: ColorsAssetData.primaryColor.withOpacity(0.1),
+          tabBackgroundColor: ColorsAssetData.primaryColor.withAlpha(25),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           tabs: [
             GButton(

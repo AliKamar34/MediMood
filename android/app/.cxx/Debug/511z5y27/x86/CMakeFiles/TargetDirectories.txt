@@ -1,0 +1,2 @@
+D:/PERSONAL PROJECTS/midiMood/android/app/.cxx/Debug/511z5y27/x86/CMakeFiles/edit_cache.dir
+D:/PERSONAL PROJECTS/midiMood/android/app/.cxx/Debug/511z5y27/x86/CMakeFiles/rebuild_cache.dir

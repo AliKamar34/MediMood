@@ -24,6 +24,9 @@ class DeletinPillgAlert extends StatelessWidget {
           child: const Text('Delete'),
           onPressed: () {
             pillModel.delete();
+            BlocProvider.of<GetPillsCubit>(context)
+                .homeRepo
+                .deletePill(pillModel);
             BlocProvider.of<GetPillsCubit>(context).getPills();
             Navigator.of(context).pop();
           },

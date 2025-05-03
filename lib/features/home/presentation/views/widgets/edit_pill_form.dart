@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -24,7 +26,7 @@ class EditPillForm extends StatefulWidget {
 
 class _EditPillFormState extends State<EditPillForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
-  String? pillName, noOfPills, beforeAndAfter, time, period;
+  String? pillName, noOfPills, beforeAndAfter, time, period, pillId;
   void updateTime(String pickedTime) {
     setState(() {
       time = pickedTime;
@@ -87,9 +89,17 @@ class _EditPillFormState extends State<EditPillForm> {
               onPressed: () {
                 if (formKey.currentState != null) {
                   widget.pillModel?.delete();
+                  if (widget.pillModel != null) {
+                    BlocProvider.of<AddPillCubit>(context).homeRepo.deletePill(
+                          widget.pillModel!,
+                        );
+                  }
                   formKey.currentState!.save();
                   BlocProvider.of<AddPillCubit>(context).addPill(
                     PillModel(
+                      pillId:
+                          (DateTime.now().millisecondsSinceEpoch % 2147483647) +
+                              Random().nextInt(1000),
                       pillName: pillName ?? '',
                       noOfPills: noOfPills ?? '',
                       beforeAndAfter: beforeAndAfter ?? '',
