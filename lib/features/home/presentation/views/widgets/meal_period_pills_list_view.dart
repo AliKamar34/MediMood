@@ -18,53 +18,53 @@ class MealPeriodPillsListView extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is GetPeriodPillsBreakFast) {
-          return ListView.builder(
-            itemCount: state.breakfastPills.length,
-            itemBuilder: (context, index) {
-              return state.breakfastPills.isEmpty
-                  ? Center(
-                      child: Text(
-                        'No pills for breakfast',
-                        style: AppTextStyle.styleMedium18(context),
-                      ),
-                    )
-                  : PillCard(
+          return state.breakfastPills.isEmpty
+              ? Center(
+                  child: Text(
+                    'No pills for breakfast',
+                    style: AppTextStyle.styleMedium18(context),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: state.breakfastPills.length,
+                  itemBuilder: (context, index) {
+                    return PillCard(
                       pillModel: state.breakfastPills[index],
                     );
-            },
-          );
+                  },
+                );
         } else if (state is GetPeriodPillsDinner) {
-          return ListView.builder(
-            itemCount: state.dinnerPills.length,
-            itemBuilder: (context, index) {
-              return state.dinnerPills.isEmpty
-                  ? Center(
-                      child: Text(
-                        'No pills for dinner',
-                        style: AppTextStyle.styleMedium18(context),
-                      ),
-                    )
-                  : PillCard(
+          return state.dinnerPills.isEmpty
+              ? Center(
+                  child: Text(
+                    'No pills for dinner',
+                    style: AppTextStyle.styleMedium18(context),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: state.dinnerPills.length,
+                  itemBuilder: (context, index) {
+                    return PillCard(
                       pillModel: state.dinnerPills[index],
                     );
-            },
-          );
+                  },
+                );
         } else if (state is GetPeriodPillsLunch) {
-          return ListView.builder(
-            itemCount: state.lunchPills.length,
-            itemBuilder: (context, index) {
-              return state.lunchPills.isEmpty
-                  ? Center(
-                      child: Text(
-                        'No pills for lunch',
-                        style: AppTextStyle.styleMedium18(context),
-                      ),
-                    )
-                  : PillCard(
+          return state.lunchPills.isEmpty
+              ? Center(
+                  child: Text(
+                    'No pills for lunch',
+                    style: AppTextStyle.styleMedium18(context),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: state.lunchPills.length,
+                  itemBuilder: (context, index) {
+                    return PillCard(
                       pillModel: state.lunchPills[index],
                     );
-            },
-          );
+                  },
+                );
         } else if (state is GetPeriodPillsFailuer) {
           return Center(
             child: Text(state.errMessage),
