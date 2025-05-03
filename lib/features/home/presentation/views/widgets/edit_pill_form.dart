@@ -13,6 +13,7 @@ import 'package:new_app/features/home/presentation/views/widgets/custom_save_but
 import 'package:new_app/features/home/presentation/views/widgets/custom_text_field.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_time_picker.dart';
 import 'package:new_app/features/home/presentation/views/widgets/edit_pill_app_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditPillForm extends StatefulWidget {
   const EditPillForm({
@@ -68,15 +69,25 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             CustomDropDown(
-              initialValue: widget.pillModel?.period,
+              initialValue: widget.pillModel?.period == 'Lunch'
+                  ? AppLocalizations.of(context)!.lunch
+                  : widget.pillModel?.period == 'Dinner'
+                      ? AppLocalizations.of(context)!.dinner
+                      : AppLocalizations.of(context)!.breakfast,
               onSaved: (value) {
-                period = value;
+                if (value == AppLocalizations.of(context)!.breakfast) {
+                  period = 'Breakfast';
+                } else if (value == AppLocalizations.of(context)!.lunch) {
+                  period = 'Lunch';
+                } else if (value == AppLocalizations.of(context)!.dinner) {
+                  period = 'Dinner';
+                }
               },
-              label: 'Pills period',
-              items: const [
-                'BreakFast',
-                'Lunch',
-                'Dinner',
+              label: AppLocalizations.of(context)!.pillsPeriod,
+              items: [
+                AppLocalizations.of(context)!.breakfast,
+                AppLocalizations.of(context)!.lunch,
+                AppLocalizations.of(context)!.dinner,
               ],
             ),
             const Flexible(child: SizedBox(height: 30)),

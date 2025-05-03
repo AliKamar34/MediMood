@@ -6,6 +6,7 @@ import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/manager/get_pills_cubit/get_pills_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PillActionButtons extends StatelessWidget {
   const PillActionButtons({
@@ -32,7 +33,7 @@ class PillActionButtons extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Take',
+            AppLocalizations.of(context)!.take,
             style: AppTextStyle.styleRegular20(context).copyWith(
               color: ColorsAssetData.scaffoldColor,
             ),
@@ -49,7 +50,7 @@ class PillActionButtons extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Edit',
+            AppLocalizations.of(context)!.edit,
             style: AppTextStyle.styleRegular20(context).copyWith(
               color: ColorsAssetData.scaffoldColor,
             ),

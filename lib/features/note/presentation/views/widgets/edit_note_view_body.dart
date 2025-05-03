@@ -27,14 +27,5 @@ class EditNoteViewBody extends StatelessWidget {
         ),
       ),
     );
-
-    // return SingleChildScrollView(
-    //   child: Padding(
-    //     padding: const EdgeInsets.symmetric(horizontal: 12),
-    //     child: EditNoteForm(
-    //       noteModel: noteModel,
-    //     ),
-    //   ),
-    // );
   }
 }

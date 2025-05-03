@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:new_app/core/services/notifications_service.dart';
 import 'package:new_app/core/utils/app_routes.dart';
@@ -12,6 +13,7 @@ import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/data/repos/note_repo_impl.dart';
 import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:new_app/simple_bloc_observer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +45,17 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        locale: const Locale('en'),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
         routerConfig: AppRoutes.router,
         theme: ThemeData.dark().copyWith(

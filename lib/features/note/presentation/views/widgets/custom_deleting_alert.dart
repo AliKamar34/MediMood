@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/features/note/data/models/note_model.dart';
 import 'package:new_app/features/note/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DeletingAlert extends StatelessWidget {
   const DeletingAlert({
@@ -12,16 +13,16 @@ class DeletingAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: const Text('Delete Note'),
+      content: Text(AppLocalizations.of(context)!.deleteNote),
       actions: [
         TextButton(
-          child: const Text('Cancle'),
+          child: Text(AppLocalizations.of(context)!.cancle),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: const Text('Delete'),
+          child: Text(AppLocalizations.of(context)!.delete),
           onPressed: () {
             noteModel.delete();
             BlocProvider.of<GetNotesCubit>(context).getNotes();

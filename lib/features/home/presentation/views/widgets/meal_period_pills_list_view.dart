@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/features/home/presentation/manager/get_period_pills_cubit/get_period_pills_cubit.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MealPeriodPillsListView extends StatelessWidget {
   const MealPeriodPillsListView({super.key});
@@ -21,7 +22,7 @@ class MealPeriodPillsListView extends StatelessWidget {
           return state.breakfastPills.isEmpty
               ? Center(
                   child: Text(
-                    'No pills for breakfast',
+                    AppLocalizations.of(context)!.noPillsForBreakfast,
                     style: AppTextStyle.styleMedium18(context),
                   ),
                 )
@@ -37,7 +38,7 @@ class MealPeriodPillsListView extends StatelessWidget {
           return state.dinnerPills.isEmpty
               ? Center(
                   child: Text(
-                    'No pills for dinner',
+                    AppLocalizations.of(context)!.noPillsForDinner,
                     style: AppTextStyle.styleMedium18(context),
                   ),
                 )
@@ -53,7 +54,7 @@ class MealPeriodPillsListView extends StatelessWidget {
           return state.lunchPills.isEmpty
               ? Center(
                   child: Text(
-                    'No pills for lunch',
+                    AppLocalizations.of(context)!.noPillsForLunch,
                     style: AppTextStyle.styleMedium18(context),
                   ),
                 )

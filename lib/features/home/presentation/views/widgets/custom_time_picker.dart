@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomTimePicker extends StatefulWidget {
   const CustomTimePicker({
@@ -49,7 +50,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
             ),
             onPressed: () => selectTime(context),
             child: Text(
-              'Select Time',
+              AppLocalizations.of(context)!.selectTime,
               style: AppTextStyle.styleMedium14(context).copyWith(
                 color: ColorsAssetData.scaffoldColor,
               ),

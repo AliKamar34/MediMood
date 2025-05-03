@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/features/home/presentation/views/widgets/custom_drop_down.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChoicesSection extends StatelessWidget {
   const ChoicesSection({
@@ -21,11 +22,11 @@ class ChoicesSection extends StatelessWidget {
           child: CustomDropDown(
             onSaved: savedNoOfPills,
             initialValue: initialNoOfPills,
-            label: 'No Of Pills',
-            items: const [
-              '1 pill',
-              '2 pills',
-              '3 pills',
+            label: AppLocalizations.of(context)!.noOfPills,
+            items: [
+              '1 ${AppLocalizations.of(context)!.pills}',
+              '2 ${AppLocalizations.of(context)!.pills}',
+              '3 ${AppLocalizations.of(context)!.pills}',
             ],
           ),
         ),
@@ -35,10 +36,10 @@ class ChoicesSection extends StatelessWidget {
           child: CustomDropDown(
             onSaved: savedBeforeAndAfter,
             initialValue: initialBeforeAndAfter,
-            label: 'Before & After',
-            items: const [
-              'Before Food',
-              'After Food',
+            label: AppLocalizations.of(context)!.beforeAndAfter,
+            items: [
+              AppLocalizations.of(context)!.beforeFood,
+              AppLocalizations.of(context)!.afterFood,
             ],
           ),
         ),

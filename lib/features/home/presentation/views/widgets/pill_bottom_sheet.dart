@@ -4,6 +4,7 @@ import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_action_buttons.dart';
 import 'package:new_app/features/home/presentation/views/widgets/pill_card_info.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PillBottomSheet extends StatelessWidget {
   const PillBottomSheet({super.key, required this.pillModel});
@@ -26,7 +27,7 @@ class PillBottomSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Pill Info',
+                  AppLocalizations.of(context)!.pillInfo,
                   style: AppTextStyle.styleBold24(context),
                 ),
                 const SizedBox(height: 30),

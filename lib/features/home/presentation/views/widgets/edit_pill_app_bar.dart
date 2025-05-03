@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EditPillAppBar extends StatelessWidget {
   const EditPillAppBar({
@@ -28,7 +29,7 @@ class EditPillAppBar extends StatelessWidget {
             width: 20,
           ),
           Text(
-            'pill',
+            AppLocalizations.of(context)!.edit,
             style: AppTextStyle.styleMedium18(context).copyWith(
               color: ColorsAssetData.primaryColor,
             ),

@@ -6,6 +6,7 @@ import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
 import 'package:new_app/features/home/presentation/views/pills_view.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({
@@ -53,7 +54,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               ),
               icon: Icons.circle,
               iconSize: 0,
-              text: 'Home',
+              text: AppLocalizations.of(context)!.home,
             ),
             GButton(
               leading: SvgPicture.asset(
@@ -63,7 +64,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               ),
               icon: FontAwesomeIcons.pills,
               iconSize: 32,
-              text: 'pills',
+              text: AppLocalizations.of(context)!.pills,
             ),
             GButton(
               leading: SvgPicture.asset(
@@ -73,7 +74,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               ),
               icon: Icons.circle,
               iconSize: 0,
-              text: 'notes',
+              text: AppLocalizations.of(context)!.notes,
             ),
           ],
           selectedIndex: selectedIndex,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/core/utils/app_text_style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomTransparentTextField extends StatelessWidget {
   const CustomTransparentTextField({
@@ -16,7 +17,7 @@ class CustomTransparentTextField extends StatelessWidget {
       initialValue:
           initialValue, //if note body isnt null show it but if it null show title
       decoration: InputDecoration(
-        hintText: 'Title',
+        hintText: AppLocalizations.of(context)!.title,
         hintStyle: AppTextStyle.styleMedium18(context),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
