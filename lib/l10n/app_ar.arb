@@ -26,5 +26,7 @@
     "take": "تناول",
     "pillInfo": "معلومات الحبة",
     "timeToTake": "وقت تناول الحبة",
-    "dontForgetToTake": "لا تنسى تناول الحبة"
+    "dontForgetToTake": "لا تنسى تناول الحبة",
+    "darkMode": "الوضع المظلم",
+    "language": "اللغة"
 }

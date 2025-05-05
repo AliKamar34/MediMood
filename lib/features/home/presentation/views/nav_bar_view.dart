@@ -5,6 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/presentation/views/home_view.dart';
 import 'package:new_app/features/home/presentation/views/pills_view.dart';
+import 'package:new_app/features/home/presentation/views/widgets/custom_drawer.dart';
 import 'package:new_app/features/note/presentation/views/notes_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -26,8 +27,21 @@ class _CustomNavBarState extends State<CustomNavBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      body: pages[selectedIndex],
+      key: scaffoldKey,
+      drawer: const CustomDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: Stack(children: [
+          pages[selectedIndex],
+          IconButton(
+            icon:
+                const Icon(Icons.settings, color: ColorsAssetData.primaryColor),
+            onPressed: () => scaffoldKey.currentState!.openDrawer(),
+          ),
+        ]),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
           bottom: 10,

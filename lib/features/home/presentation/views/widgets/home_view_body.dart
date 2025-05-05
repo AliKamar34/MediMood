@@ -42,11 +42,13 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              getMealPeriodAppBar(),
-              style: AppTextStyle.styleMedium18(context),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                getMealPeriodAppBar(),
+                style: AppTextStyle.styleMedium18(context),
+              ),
             ),
           ),
           Expanded(

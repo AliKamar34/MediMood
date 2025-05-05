@@ -15,7 +15,7 @@ class PillCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 7,
-      color: ColorsAssetData.scaffoldColor,
+      color: Theme.of(context).scaffoldBackgroundColor,
       shadowColor: ColorsAssetData.primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(14),

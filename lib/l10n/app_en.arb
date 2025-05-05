@@ -26,5 +26,7 @@
     "take": "Take",
     "pillInfo": "Pill Info",
     "timeToTake": "Time to take",
-    "dontForgetToTake": "Don'\t forget to take"
+    "dontForgetToTake": "Don'\t forget to take",
+    "darkMode": "darkMode",
+    "language": "Language"
 }
