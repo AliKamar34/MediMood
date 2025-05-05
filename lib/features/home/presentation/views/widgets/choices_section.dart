@@ -23,11 +23,24 @@ class ChoicesSection extends StatelessWidget {
             onSaved: savedNoOfPills,
             initialValue: initialNoOfPills,
             label: AppLocalizations.of(context)!.noOfPills,
-            items: [
-              '1 ${AppLocalizations.of(context)!.pills}',
-              '2 ${AppLocalizations.of(context)!.pills}',
-              '3 ${AppLocalizations.of(context)!.pills}',
+            items: const [
+              '1',
+              '2',
+              '3',
             ],
+            displayText: (value) {
+              switch (value) {
+                case '1':
+                  return '$value${AppLocalizations.of(context)!.pills}';
+                case '2':
+                  return '$value${AppLocalizations.of(context)!.pills}';
+                case '3':
+                  return '$value${AppLocalizations.of(context)!.pills}';
+
+                default:
+                  return '$value${AppLocalizations.of(context)!.pills}';
+              }
+            },
           ),
         ),
         const SizedBox(width: 10),
@@ -37,10 +50,20 @@ class ChoicesSection extends StatelessWidget {
             onSaved: savedBeforeAndAfter,
             initialValue: initialBeforeAndAfter,
             label: AppLocalizations.of(context)!.beforeAndAfter,
-            items: [
-              AppLocalizations.of(context)!.beforeFood,
-              AppLocalizations.of(context)!.afterFood,
+            items: const [
+              'Before Food',
+              'After Food',
             ],
+            displayText: (value) {
+              switch (value) {
+                case 'Before Food':
+                  return AppLocalizations.of(context)!.beforeFood;
+                case 'After Food':
+                  return AppLocalizations.of(context)!.afterFood;
+                default:
+                  return AppLocalizations.of(context)!.beforeFood;
+              }
+            },
           ),
         ),
       ],

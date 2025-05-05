@@ -58,6 +58,9 @@ class _EditPillFormState extends State<EditPillForm> {
             ChoicesSection(
               initialNoOfPills: widget.pillModel?.noOfPills,
               initialBeforeAndAfter: widget.pillModel?.beforeAndAfter,
+              //  == 'Before'
+              //     ? AppLocalizations.of(context)!.beforeFood
+              //     : AppLocalizations.of(context)!.afterFood,
               savedNoOfPills: (value) {
                 noOfPills = value;
               },
@@ -69,26 +72,33 @@ class _EditPillFormState extends State<EditPillForm> {
               height: 20,
             ),
             CustomDropDown(
-              initialValue: widget.pillModel?.period == 'Lunch'
-                  ? AppLocalizations.of(context)!.lunch
-                  : widget.pillModel?.period == 'Dinner'
-                      ? AppLocalizations.of(context)!.dinner
-                      : AppLocalizations.of(context)!.breakfast,
+              initialValue: widget.pillModel?.period,
+              // == 'Lunch'
+              //     ? AppLocalizations.of(context)!.lunch
+              //     : widget.pillModel?.period == 'Dinner'
+              //         ? AppLocalizations.of(context)!.dinner
+              //         : AppLocalizations.of(context)!.breakfast,
               onSaved: (value) {
-                if (value == AppLocalizations.of(context)!.breakfast) {
-                  period = 'Breakfast';
-                } else if (value == AppLocalizations.of(context)!.lunch) {
-                  period = 'Lunch';
-                } else if (value == AppLocalizations.of(context)!.dinner) {
-                  period = 'Dinner';
-                }
+                period = value;
               },
               label: AppLocalizations.of(context)!.pillsPeriod,
-              items: [
-                AppLocalizations.of(context)!.breakfast,
-                AppLocalizations.of(context)!.lunch,
-                AppLocalizations.of(context)!.dinner,
+              items: const [
+                'Breakfast',
+                'Lunch',
+                'Dinner',
               ],
+              displayText: (value) {
+                switch (value) {
+                  case 'Breakfast':
+                    return AppLocalizations.of(context)!.breakfast;
+                  case 'Lunch':
+                    return AppLocalizations.of(context)!.lunch;
+                  case 'Dinner':
+                    return AppLocalizations.of(context)!.dinner;
+                  default:
+                    return AppLocalizations.of(context)!.breakfast;
+                }
+              },
             ),
             const Flexible(child: SizedBox(height: 30)),
             CustomTimePicker(

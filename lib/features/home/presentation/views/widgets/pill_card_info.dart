@@ -5,6 +5,7 @@ import 'package:new_app/core/utils/assets_data.dart';
 import 'package:new_app/core/utils/colors_asset_data.dart';
 import 'package:new_app/features/home/data/models/pill_model.dart';
 import 'package:new_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PillCardInfo extends StatelessWidget {
   const PillCardInfo({
@@ -52,7 +53,9 @@ class PillCardInfo extends StatelessWidget {
                 width: 18,
               ),
               Text(
-                pillModel.beforeAndAfter,
+                pillModel.beforeAndAfter == 'Before Food'
+                    ? AppLocalizations.of(context)!.beforeFood
+                    : AppLocalizations.of(context)!.afterFood,
                 style: AppTextStyle.styleMedium18(context),
               ),
             ],

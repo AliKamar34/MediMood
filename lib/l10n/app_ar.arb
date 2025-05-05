@@ -24,5 +24,7 @@
     "noPillsForLunch": "لا توجد حبوب للغداء",
     "noPillsForBreakfast": "لا توجد حبوب للإفطار",
     "take": "تناول",
-    "pillInfo": "معلومات الحبة"
+    "pillInfo": "معلومات الحبة",
+    "timeToTake": "وقت تناول الحبة",
+    "dontForgetToTake": "لا تنسى تناول الحبة"
 }

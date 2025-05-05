@@ -24,5 +24,7 @@
     "noPillsForLunch": "No Pills for Lunch",
     "noPillsForBreakfast": "No Pills for Breakfast",
     "take": "Take",
-    "pillInfo": "Pill Info"
+    "pillInfo": "Pill Info",
+    "timeToTake": "Time to take",
+    "dontForgetToTake": "Don'\t forget to take"
 }

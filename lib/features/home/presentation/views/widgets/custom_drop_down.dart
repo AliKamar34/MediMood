@@ -9,10 +9,13 @@ class CustomDropDown extends StatelessWidget {
     required this.label,
     this.onSaved,
     this.initialValue,
+    required this.displayText,
   });
   final List<String> items;
   final String label;
   final void Function(String?)? onSaved;
+  final String Function(String?) displayText;
+
   final String? initialValue;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class CustomDropDown extends StatelessWidget {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(
-            value,
+            displayText(value),
             style: AppTextStyle.styleRegular14(context),
           ),
         );
